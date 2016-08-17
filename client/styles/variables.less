@@ -1,0 +1,118 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "../../node_modules/bootstrap/less/variables.less";
+@import (reference) "../../node_modules/bootstrap/less/mixins.less";
+
+
+// UI Guide Colours
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Branding Colours
+@brand-primary:         #e33;
+@brand-success:         #38b87c;    // rgb(56, 184, 124)
+@brand-info:            #5bc0de;
+@brand-warning:         #ebaf3c;    // rgb(235, 175, 60)
+@brand-danger:          #f04747;    // rgb(240, 71, 71)
+@color-negative:        #e33;
+
+// Neutral Colours
+@black:                 #000;       // rgb(0, 0, 0)
+@white:                 #fff;       // rgb(255, 255, 255)
+@ghostwhite:            #f8f8ff;    // rgb(248, 248, 255)
+@whitesmoke:            #f5f5f5;    // rgb(245, 245, 245)
+@platinum:              #e5e4e2;    // rgba(229, 228, 226)
+@silver:                #c0c0c0;    // rgba(192, 192, 192)
+@dark-grey:             #3e4244;    // rgb(62, 66, 68)
+@blue-grey:             #959da0;    // rgb(149, 157, 160)
+@subtle-grey:           #777;       // rgb(119, 119, 119)
+@mid-blue-grey:         #b4bcc1;    // rgb(180, 188, 193)
+@mid-grey:              #ccc;       // rgb(204, 204, 204)
+@grey:                  #e6e7e8;    // rgb(230, 231, 232)
+@inactive-grey:         #f0f1f2;    // rgb(240, 241, 242)
+@light-grey:            #f7f8f8;    // rgb(247, 248, 248)
+
+// True Greyscale Reference
+//    lighten(@black, 6.5%);    // #111
+//    lighten(@black, 13.5%);   // #222
+//    lighten(@black, 20%);     // #333
+//    lighten(@black, 26.5%);   // #444
+//    lighten(@black, 33.5%);   // #555
+//    lighten(@black, 40%);     // #666
+//    lighten(@black, 46.7%);   // #777
+//    lighten(@black, 53.5%);   // #888
+//    lighten(@black, 60%);     // #999
+//    lighten(@black, 66.5%);   // #AAA
+//    lighten(@black, 73.5%);   // #BBB
+//    lighten(@black, 80%);     // #CCC
+//    lighten(@black, 86.5%);   // #DDD
+//    lighten(@black, 93.5%);   // #EEE
+
+
+// Scaffolding - Settings for some of the most global styles.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@body-bg:               @white;
+@text-color:            @gray-dark;
+@link-color:            @brand-primary;
+@link-hover-color:      darken(@link-color, 15%);
+@link-hover-decoration: underline;
+
+
+// Typography
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@font-family-sans-serif:  "Montserrat", Helvetica, Arial, sans-serif;
+
+@font-size-base:          16px;
+@font-size-large:         ceil((@font-size-base * 1.125));  // ~18px
+@font-size-small:         ceil((@font-size-base * 0.875));  // ~14px
+
+@font-size-h1:            floor((@font-size-base * 2.25));  // ~36px
+@font-size-h2:            floor((@font-size-base * 1.875)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.5));    // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.125));  // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.875));  // ~14px
+
+
+// Images & Icons
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@icon-font-path:          "/fonts/";
+@image-path:              "/img/";
+
+
+// Form Input Colours (in order of priority)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@input-color:                   #4a4a4a;
+@input-background:              @white;
+@input-border-color:            @grey;
+
+@input-invalid-color:           #4a4a4a;
+@input-invalid-background:      @white;
+@input-invalid-border-color:    @brand-primary;
+
+@input-active-color:            #4a4a4a;
+@input-active-background:       @white;
+@input-active-border-color:     @mid-grey;
+
+@input-disabled-color:          #4a4a4a;
+@input-disabled-background:     @white;
+@input-disabled-border-color:   @grey;
+
+@input-required-indicator:        @brand-danger;
+@input-required-indicator-border: @white;
+
+
+// Breakpoints
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Mobile-First Breakpoints
+//  - loosely based on: https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
+
+@breakpoint-xxsmall:  ~"screen and (min-width: 480px)";   // Grid: 4 Columns Max
+@breakpoint-xsmall:   ~"screen and (min-width: 600px)";   // Grid: 4-8 Columns Max
+@breakpoint-small:    ~"screen and (min-width: 840px)";   // Grid: 8 Columns Max
+@breakpoint-medium:   ~"screen and (min-width: 960px)";   // Grid: 8-12 Columns Max
+@breakpoint-large:    ~"screen and (min-width: 1280px)";  // Grid: 8-12 Columns Max
+@breakpoint-xlarge:   ~"screen and (min-width: 1440px)";  // Grid: 12 Columns Min
+@breakpoint-xxlarge:  ~"screen and (min-width: 1600px)";  // Grid: 12 Columns Min
+

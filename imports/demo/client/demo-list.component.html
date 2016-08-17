@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <h3>Create a new demo!</h3>
+            <demos-form [hidden]="!user"></demos-form>
+            <div [hidden]="user">You need to login to create new demos!</div>
+            <login-buttons></login-buttons>
+        </div>
+    </div>
+</div>
+<div class="row ma-filters">
+    <div class="col-md-6">
+        <h3>All Demos:</h3>
+        <form class="form-inline">
+            <input type="text" class="form-control" #searchtext placeholder="Search by Location">
+            <button type="button" class="btn btn-primary" (click)="search(searchtext.value)">Search</button>
+            Sort by name: <select class="form-control" #sort (change)="changeSortOrder(sort.value)">
+            <option value="1" selected>Ascending</option>
+            <option value="-1">Descending</option>
+        </select>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <pagination-controls (pageChange)="onPageChanged($event)"></pagination-controls>
+            </li>
+            <li *ngFor="let demo of demos" class="list-group-item ma-demo-item">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2 class="ma-demo-name">
+                            <a [routerLink]="['/demo', demo._id]">{{demo.name}}</a>
+                        </h2>
+                        @ {{demo.location.name}}
+                        <p class="ma-demo-description">
+                            {{demo.description}}
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger pull-right" [hidden]="!isOwner(demo)" (click)="removeDemo(demo)"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="row ma-demo-item-bottom">
+                    <div class="col-sm-4">
+                        <div class="ma-rsvp-sum">
+                            <div class="ma-rsvp-amount">
+                                <div class="ma-amount">
+                                    {{demo | rsvp:'yes'}}
+                                </div>
+                                <div class="ma-rsvp-title">
+                                    YES
+                                </div>
+                            </div>
+                            <div class="ma-rsvp-amount">
+                                <div class="ma-amount">
+                                    {{demo | rsvp:'maybe'}}
+                                </div>
+                                <div class="ma-rsvp-title">
+                                    MAYBE
+                                </div>
+                            </div>
+                            <div class="ma-rsvp-amount">
+                                <div class="ma-amount">
+                                    {{demo | rsvp:'no'}}
+                                </div>
+                                <div class="ma-rsvp-title">
+                                    NO
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <pagination-controls (pageChange)="onPageChanged($event)"></pagination-controls>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6" *ngIf="!loading">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <sebm-google-map
+                        [latitude]="39.5"
+                        [longitude]="-98.35"
+                        [zoom]="2">
+                    <div *ngFor="let demo of demos">
+                        <sebm-google-map-marker
+                                *ngIf="demo.location.lat"
+                                [latitude]="demo.location.lat"
+                                [longitude]="demo.location.lng">
+                        </sebm-google-map-marker>
+                    </div>
+                </sebm-google-map>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<demo></demo>
+

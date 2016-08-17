@@ -1,0 +1,68 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "../../../node_modules/bootstrap/less/variables.less";
+@import (reference) "../../../node_modules/bootstrap/less/mixins.less";
+@import (reference) "../../../client/styles/variables.less";
+@import (reference) "../../../client/styles/mixins.less";
+
+
+// Welcome Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.welcome-component,
+  &.forgot-component {
+
+    hr {
+      border-color: @brand-primary;
+      border-width: 3px;
+      max-width: 50px;
+    }
+
+    hr.light {
+      border-color: white;
+    }
+
+    header {
+      .square(100%);
+      .background-cover;
+      background-position: center;
+      background-image: url("@{image-path}header.jpg");
+      text-align: center;
+      color: @white;
+
+      .header-content {
+        .square(100%);
+        padding: 100px 15px 100px;
+        text-align: center;
+
+        .header-content-inner {
+          h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+          hr {
+            margin: 30px auto;
+          }
+          p {
+            margin-bottom: 50px;
+            font-size: @font-size-base;
+            font-weight: 400;
+            color: fade(white, 70%);
+          }
+          .well {
+            color: @text-color;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            .box-shadow(inset 0 1px 3px rgba(0, 0, 0, 0.3));
+          }
+        }
+      }
+    }
+
+
+  }
+}

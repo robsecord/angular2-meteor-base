@@ -1,0 +1,25 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "../../../node_modules/bootstrap/less/variables.less";
+@import (reference) "../../../node_modules/bootstrap/less/mixins.less";
+@import (reference) "../../../client/styles/variables.less";
+@import (reference) "../../../client/styles/mixins.less";
+
+
+// Login Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.login-component {
+
+    .alert {
+      margin: 20px 0 0 0;
+    }
+
+    .btn-forgot {
+      .pos-abs(auto, -20px, 0);   // T, R, B, L
+      font-size: 12px;
+      color: @blue-grey;
+    }
+
+  }
+}

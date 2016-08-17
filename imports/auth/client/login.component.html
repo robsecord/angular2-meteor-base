@@ -1,0 +1,22 @@
+<div class="component-wrapper login-component">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-horizontal">
+        <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" class="form-control" type="text" formControlName="email" placeholder="Email address" />
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input id="password" class="form-control" type="password" formControlName="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign In</button>
+        <a [routerLink]="['/forgot']" class="btn btn-sm btn-link btn-forgot pull-right">Forgot password?</a>
+
+        <div [hidden]="error == ''">
+            <div class="alert alert-danger" role="alert">
+                {{ error | displayErrorMsg }}
+            </div>
+        </div>
+    </form>
+</div>

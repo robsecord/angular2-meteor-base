@@ -1,0 +1,15 @@
+{
+  "name": "angular2-meteor-base",
+  "dependencies": {
+    "es6-promise": "registry:npm/es6-promise#3.0.0+20160723033700"
+  },
+  "globalDependencies": {
+    "angular2-compilers": "github:meteor-typings/angular2-compilers#c2ca3d3036b08f04a22b98ed16ff17377499e1e7",
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "faker": "registry:dt/faker#0.0.0+20160406111603",
+    "lodash": "registry:dt/lodash#4.14.0+20160802150749",
+    "meteor": "github:meteor-typings/meteor/1.3#955b89a4e2af892d1736bc570b490a97e860d5b7",
+    "moment": "registry:dt/moment#2.8.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160807145350"
+  }
+}

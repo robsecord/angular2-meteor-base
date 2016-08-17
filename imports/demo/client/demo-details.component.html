@@ -1,0 +1,61 @@
+<div class="row ma-demo-details-container">
+    <div class="col-sm-6 col-sm-offset-3">
+        <legend>View and Edit Your Demo Details:</legend>
+        <form class="form-horizontal" *ngIf="demo" (submit)="saveDemo()">
+            <div class="form-group">
+                <label>Demo Name</label>
+                <input [disabled]="!isOwner" type="text" [(ngModel)]="demo.name" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input [disabled]="!isOwner" type="text" [(ngModel)]="demo.description" name="description" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Location name</label>
+                <input [disabled]="!isOwner" type="text" [(ngModel)]="demo.location.name" name="location" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="!isOwner" type="submit" class="btn btn-primary">Save</button>
+                <a [routerLink]="['/']" class="btn">Back</a>
+            </div>
+        </form>
+
+        <ul class="ma-invite-list" *ngIf="isOwner || isPublic">
+            <h3>
+                Users to invite:
+            </h3>
+            <li *ngFor="let user of users">
+                <div>{{ user | displayName }}</div>
+                <button (click)="invite(user)" class="btn btn-primary btn-sm">Invite</button>
+            </li>
+        </ul>
+
+        <div *ngIf="isInvited">
+            <h2>Reply to the invitation</h2>
+            <input type="button" class="btn btn-primary" value="I'm going!" (click)="reply('yes')">
+            <input type="button" class="btn btn-warning" value="Maybe" (click)="reply('maybe')">
+            <input type="button" class="btn btn-danger" value="No" (click)="reply('no')">
+        </div>
+
+        <h3 class="ma-map-title">
+            Click the map to set the demo location
+        </h3>
+
+        <div class="angular-google-map-container">
+            <sebm-google-map
+                    [latitude]="lat || centerLat"
+                    [longitude]="lng || centerLng"
+                    [zoom]="8"
+                    (mapClick)="mapClicked($event)">
+                <sebm-google-map-marker
+                        *ngIf="lat && lng"
+                        [latitude]="lat"
+                        [longitude]="lng">
+                </sebm-google-map-marker>
+            </sebm-google-map>
+        </div>
+    </div>
+</div>

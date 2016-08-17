@@ -1,0 +1,37 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "../../node_modules/bootstrap/less/variables.less";
+@import (reference) "../../node_modules/bootstrap/less/mixins.less";
+@import (reference) "./variables.less";
+@import (reference) "./mixins.less";
+
+
+// Primary Styles
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+html, body {
+  height: 100%;
+}
+
+
+// Component Wrapper
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  position: relative;
+  height: 100%;
+  //outline: 3px dotted red;
+
+  &.root-component {
+  }
+}
+.component-state-transition-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+
+// Fix color of AutoComplete Input BG
+input:-webkit-autofill {
+  &, &:hover, &:focus, &:active {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+}

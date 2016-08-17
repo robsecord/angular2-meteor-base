@@ -1,0 +1,17 @@
+<div class="component-wrapper recover-component">
+    <form [formGroup]="recoverForm" (ngSubmit)="recover()" class="form-horizontal">
+        <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" class="form-control" type="text" formControlName="email" placeholder="Email address" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Recover</button>
+        <a [routerLink]="['/']" class="btn btn-sm btn-link btn-cancel">cancel</a>
+
+        <div [hidden]="error == ''">
+            <div class="alert alert-danger" role="alert">
+                {{ error | displayErrorMsg }}
+            </div>
+        </div>
+    </form>
+</div>

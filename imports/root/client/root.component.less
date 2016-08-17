@@ -1,0 +1,170 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "../../../node_modules/bootstrap/less/variables.less";
+@import (reference) "../../../node_modules/bootstrap/less/mixins.less";
+@import (reference) "../../../client/styles/variables.less";
+@import (reference) "../../../client/styles/mixins.less";
+
+
+// Root Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.root-component {
+
+    // Top Navigation
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .navbar.navbar-default {
+      background: transparent;
+      background-image: none;
+      border-color: fade(white, 30%);
+
+      &.navbar-fixed-top {
+        margin-bottom: 0;
+      }
+
+      .navbar-brand {
+        img {
+          .square(20px);
+        }
+      }
+
+      .navbar-text {
+        color: @whitesmoke;
+      }
+
+      .navbar-toggle {
+        border-color: @subtle-grey;
+      }
+
+      .navbar-form {
+        label {
+          padding-right: 15px;
+        }
+        select {
+          background-color: lighten(@blue-grey, 10%);
+          border: 0 none;
+          border-radius: 2px;
+        }
+        label, select {
+          color: @whitesmoke;
+          font-size: @font-size-base - 2;
+          font-weight: 400;
+          text-shadow: none;
+        }
+      }
+
+      .navbar-nav {
+        > li {
+          > a {
+            font-size: @font-size-base - 2;
+            color: @whitesmoke;
+            text-shadow: none;
+          }
+
+          &.dropdown {
+            &.open {
+              > a {
+                background-color: lighten(@blue-grey, 10%);
+                background-image: none;
+              }
+            }
+          }
+        }
+      }
+
+      .navbar-collapse.in {
+        background: rgba(74, 66, 63, 0.95);
+      }
+      @media (min-width: @grid-float-breakpoint) {
+        .navbar-collapse.in {
+          background: transparent;
+        }
+      }
+    }
+
+    // Page Containers
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    > .container-fluid {
+      &, > .row {
+        height: 100%;
+      }
+    }
+    .sidemenu-primary,
+    .content-primary {
+      height: 100%;
+    }
+
+    // Primary Side Menu
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .sidemenu-primary {
+      display: none;  // Hide for mobile, show later
+    }
+    @media screen and (min-width: @screen-sm) {
+      .sidemenu-primary {
+        .pos-fix((@navbar-height + 1), auto, 0, 0); // T, R, B, L
+        display: block;
+        padding: 20px;
+        background-color: @whitesmoke;
+        border-right: 1px solid @platinum;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        z-index: 1000;
+
+        .nav-sidebar {
+          margin-right: -21px; /* 20px padding + 1px border */
+          margin-bottom: 20px;
+          margin-left: -20px;
+
+          > li > a {
+            padding-right: 20px;
+            padding-left: 20px;
+          }
+
+          > .active {
+            > a,
+            > a:hover,
+            > a:focus {
+              color: @white;
+              background-color: #428bca;
+            }
+          }
+        }
+      }
+    }
+
+    // Primary Content
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .content-primary {
+      padding: 20px;
+
+      .page-header {
+        margin-top: 0;
+      }
+      .sub-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    // Logged-in/Logged-out State
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    &.logged-out {
+      .sidemenu-primary {
+        display: none;
+      }
+      .content-primary {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    &.logged-in {
+      padding-top: @navbar-height;
+
+      .navbar-default {
+        background: @blue-grey;
+      }
+    }
+
+  }
+}

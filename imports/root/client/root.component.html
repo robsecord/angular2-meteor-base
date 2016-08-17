@@ -1,0 +1,56 @@
+<div class="component-wrapper root-component" [hidden]="loggingOut" [ngClass]="{'logged-in': user, 'logged-out': !user}">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button *ngIf="user" type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img alt="Brand" src="/img/logo_32x32.png"></a>
+                <p class="navbar-text">Angular2-Meteor-Base</p>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
+                <div *ngIf="user">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li dropdown>
+                            <a href dropdownToggle id="profileDropdown" role="button" aria-haspopup="true" aria-expanded="false">Rob Secord <span class="caret" aria-hidden="true"></span></a>
+                            <ul class="dropdown-menu" dropdownMenu aria-labelledby="profileDropdown">
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href (click)="logout()">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidemenu-primary">
+
+                <sidemenu></sidemenu>
+
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 content-primary">
+
+                <router-outlet></router-outlet>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- This wrapper element is used to show transitionary page contents during logout phase. -->
+<div class="component-state-transition-wrapper" [hidden]="!loggingOut">
+
+    <h2>Bye!</h2>
+
+</div>

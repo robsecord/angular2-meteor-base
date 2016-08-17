@@ -1,0 +1,24 @@
+<div class="component-wrapper demo-form-component">
+    <div *ngIf="!user">Please, log in to change party</div>
+    <form [formGroup]="addForm" (ngSubmit)="addDemo()" class="form-inline">
+        <fieldset class="form-group">
+            <label for="demoName">Demo name</label>
+            <input id="demoName" class="form-control" type="text" formControlName="name" placeholder="Demo name" />
+
+            <label for="description">Description</label>
+            <input id="description" class="form-control" type="text" formControlName="description" placeholder="Description">
+
+            <label for="location_name">Location</label>
+            <input id="location_name" class="form-control" type="text" formControlName="location" placeholder="Location name">
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" formControlName="public">
+                    Public
+                </label>
+            </div>
+
+            <button type="submit">Add</button>
+        </fieldset>
+    </form>
+</div>
