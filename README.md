@@ -9,10 +9,11 @@ Angular2 + Meteor -- Base Application
 * Twitter Bootstrap: 3.3.7
 
 ## Build & Run
-1. git clone [this_repo]
-2. cd angular2-meteor-base/
-3. meteor npm install
-4. meteor
+* git clone [this_repo]
+* cd angular2-meteor-base/
+* meteor update --release 1.3.5.1
+* meteor npm install
+* meteor
 
 ## TODO
 * Jasmine Tests
