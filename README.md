@@ -1,5 +1,6 @@
 # Angular2-Meteor-Base
 Angular2 + Meteor -- Base Application
+
 *Note: This is a Work-In-Progress*
 
 ## Current Versions
